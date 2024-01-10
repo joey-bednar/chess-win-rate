@@ -8,6 +8,7 @@
         body {
             color: white;
             background: #d9d9d9;
+            font-family: Arial;
         }
         .main {
             position: absolute;
@@ -30,7 +31,7 @@
         }
         .ratings {
             grid-column: 1/2;
-            grid-row: 1;
+            grid-row: 2;
             display: grid;
             grid-template-columns: repeat(1,1fr);
             padding-right: 50px;
@@ -38,14 +39,19 @@
         }
         .users {
             grid-column: 2/3;
-            grid-row: 1;
+            grid-row: 2;
             display: grid;
             grid-template-columns: repeat(1,1fr);
             padding-left: 30px;
         }
         .winrate {
             grid-column: 1/3;
-            grid-row: 2;
+            grid-row: 3;
+            text-align: center;
+        }
+        .header {
+            grid-column: 1/3;
+            grid-row: 1;
             text-align: center;
         }
         select {
@@ -72,6 +78,9 @@
   </head>
   <body>
     <div class="main">
+        <div class="header">
+            <h1>Elo Win Percentage</h1>
+        </div>
     <div class="form ratings">
         <h2>Ratings</h2>
         <input placeholder="Player 1 Rating" class="text rating" id="r1" /><br/>
@@ -84,7 +93,7 @@
         <input placeholder="Player 2 Username" class="text username" id="name2" /><br/>
         <select id="time">
             <option value="0">Bullet</option>
-            <option value="1">Blitz</option>
+            <option value="1" selected>Blitz</option>
             <option value="2">Rapid</option>
             <option value="3">Daily</option>
         </select>

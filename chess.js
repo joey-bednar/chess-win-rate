@@ -33,8 +33,9 @@ async function lichess(username) {
 // winning against player with rating r2
 function winRate(r1,r2) {
     const m = (r2-r1)/400
-    const p = 1/(1+(10**m))
-    return p
+    const P = 1/(1+(10**m)) //probability
+    const percent = Number.parseFloat(P*100).toFixed(2) //percent 2 decimals
+    return percent
 }
 
 async function fetchUser(username,site) {
@@ -72,5 +73,5 @@ export function calculate() {
     const r2 = document.querySelector("#r2").value
     const out = document.querySelector("#winrate")
     const wr = winRate(r1,r2)
-    out.innerHTML = wr
+    out.innerHTML = "Win probability of "+wr+"%."
 }
