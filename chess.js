@@ -1,6 +1,3 @@
-const DEFAULT_RATING = 1500
-let r1 = [DEFAULT_RATING,DEFAULT_RATING,DEFAULT_RATING,DEFAULT_RATING]
-
 async function chesscom(username) {
     // chess_bullet,chess_blitz,chess_rapid,chess_daily
     try {
@@ -40,31 +37,40 @@ function winRate(r1,r2) {
     return p
 }
 
-export async function fetchStats() {
-    const username = document.getElementById("name1").value
-    const site = document.getElementById("site").value
-    const time = document.getElementById("time").value
-    const out = document.querySelector("#r1")
-
-    let obj
-    if (site === "chesscom") {
-        obj = chesscom(username)
-    } else if (site === "lichess") {
-        obj = lichess(username)
-    } else {
-        console.log("Other")
+async function fetchUser(username,site) {
+    if (username === "") {
+        return
     }
 
-    obj.then(function(array) {
-        out.value = array[time]
-        console.log(array)
-    })
+    if (site === "chesscom") {
+        return chesscom(username)
+    } else if (site === "lichess") {
+        return lichess(username)
+    } else {
+        console.log("Invalid website.")
+    }
+}
+
+export async function fetchStats() {
+    const site = document.querySelector("#site").value
+    const time = document.querySelector("#time").value
+
+    for (let i=1;i<=2;i++) {
+        const username = document.querySelector("#name"+i).value
+        const out = document.querySelector("#r"+i)
+        try {
+            let obj = await fetchUser(username,site)
+            out.value = obj[time]
+        } catch {
+
+        }
+    }
 }
 
 export function calculate() {
-    const r1 = document.getElementById("r1").value
-    const r2 = document.getElementById("r2").value
-    const out = document.getElementById("winrate")
+    const r1 = document.querySelector("#r1").value
+    const r2 = document.querySelector("#r2").value
+    const out = document.querySelector("#winrate")
     const wr = winRate(r1,r2)
     out.innerHTML = wr
 }
