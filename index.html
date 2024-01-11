@@ -3,83 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <style>
-        body {
-            color: white;
-            background: #d9d9d9;
-            font-family: Arial;
-        }
-        .main {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 400px;
-
-            padding: 20px;
-            border-radius: 15px;
-            background: #284b63;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            grid-gap: 20px;
-        }
-        .form {
-            text-align: center;
-        }
-        .ratings {
-            grid-column: 1/2;
-            grid-row: 2;
-            display: grid;
-            grid-template-columns: repeat(1,1fr);
-            padding-right: 50px;
-            border-right: 2px solid white;
-        }
-        .users {
-            grid-column: 2/3;
-            grid-row: 2;
-            display: grid;
-            grid-template-columns: repeat(1,1fr);
-            padding-left: 30px;
-        }
-        .winrate {
-            grid-column: 1/3;
-            grid-row: 3;
-            text-align: center;
-        }
-        .header {
-            grid-column: 1/3;
-            grid-row: 1;
-            text-align: center;
-        }
-        select {
-            background: white;
-            color: #353535;
-            border-radius: 5px;
-            border: 0;
-            font-size: 1.5em;
-            margin: 2px;
-        }
-        button {
-            background: #353535;
-            color: white;
-            border: 3px solid #353535;
-            margin: 2px;
-            font-size: 1.5em;
-        }
-        input.text {
-            font-size: 1.5em;
-            padding: 5px;
-            margin: 2px;
-        }
-    </style>
+    <title>Chess Win Percentage Calculator</title>
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
     <div class="main">
         <div class="header">
-            <h1>Elo Win Percentage</h1>
+            <h1>Chess Win Percentage Calculator</h1>
         </div>
     <div class="form ratings">
         <h2>Ratings</h2>
@@ -106,6 +36,6 @@
     <div class="winrate" id="winrate">
     </div>
     </div>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
