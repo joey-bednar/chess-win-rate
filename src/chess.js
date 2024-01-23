@@ -1,19 +1,25 @@
 async function chesscom(username) {
-    // chess_bullet,chess_blitz,chess_rapid,chess_daily
+
+    let obj;
     try {
         const response = await fetch("https://api.chess.com/pub/player/"+username+"/stats")
-        const obj = await response.json()
-        return [
-            obj.chess_bullet.last.rating,
-            obj.chess_blitz.last.rating,
-            obj.chess_rapid.last.rating,
-            obj.chess_daily.last.rating]
+        obj = await response.json()
     } catch {
         console.log("Error fetching chess.com rating")
     }
+
+    let ratings = ["","","",""]
+    const time_control = ["chess_bullet","chess_blitz","chess_rapid","chess_daily"]
+
+    for (let i=0;i<time_control.length;i++) {
+        if (obj.hasOwnProperty(time_control[i])) {
+            ratings[i] = obj[time_control[i]].last.rating
+        }
+    }
+
+    return ratings
 }
 async function lichess(username) {
-    // bullet,blitz,rapid,classical,correspondence
     try {
         const response = await fetch("https://lichess.org/api/user/"+username)
         const obj = await response.json()
@@ -73,5 +79,5 @@ export function calculate() {
     const r2 = document.querySelector("#r2").value
     const out = document.querySelector("#winrate")
     const wr = winRate(r1,r2)
-    out.innerHTML = "Win probability of "+wr+"%."
+    out.innerHTML = "Player 1 is expected to win <b>"+wr+"%</b> of games against Player 2."
 }
