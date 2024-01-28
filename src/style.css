@@ -1,11 +1,14 @@
 body {
-  color: white;
-  background: #d9d9d9;
+  color: #ffffff;
+  background-color: black;
+  background-image: url("../background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: Arial;
   text-align: center;
 }
 select {
-  background: white;
+  background: #ffffff;
   color: #353535;
   border-radius: 5px;
   border: 0;
@@ -13,19 +16,21 @@ select {
   margin: 2px;
 }
 button {
-  background: #353535;
-  color: white;
-  border: 3px solid #353535;
-  margin: 2px;
+  background: #565659;
+  color: #ffffff;
+  border: 3px solid #565659;
   font-size: 1.5em;
+  padding: 5px;
+  margin: 1px 0;
 }
 input.text {
   font-size: 1.5em;
-  padding: 5px;
-  margin: 2px;
+  height: 50px;
+  background: #ffffff;
+  border: 0;
 }
 a {
-  color: white;
+  color: #ffffff;
 }
 
 /*********************************/
@@ -39,39 +44,67 @@ a {
 
   padding: 20px;
   border-radius: 15px;
-  background: #284b63;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /*background: #284b63;*/
+  border: 2px solid white;
+  background: #212324;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-template:
+    'header header header header'
+    'form1 . form2 form2'
+    'rating1 . user1 time'
+    'rating2 . user2 site'
+    'form1-submit . form2-submit form2-submit'
+    '. . . .'
+    'winrate winrate winrate winrate'
+    '. . . .'
+    'github github github github';
+  grid-column-gap: 20px;
+  grid-row-gap: 2px;
 }
-.header {
-  grid-column: 1/3;
-  grid-row: 1;
+h1.header {
+    grid-area: header;
 }
-.ratings {
-  grid-column: 1/2;
-  grid-row: 2;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  padding-right: 50px;
-  border-right: 2px solid white;
-  height: 300px;
+h2.ratings {
+    grid-area: form1;
 }
-.users {
-  grid-column: 2/3;
-  grid-row: 2;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  padding-left: 30px;
-  height: 300px;
+h2.users {
+    grid-area: form2;
+}
+
+input#r1 {
+    grid-area: rating1;
+}
+input#r2 {
+    grid-area: rating2;
+}
+button#calc {
+    grid-area: form1-submit;
+}
+input#name1 {
+    grid-area: user1;
+}
+input#name2 {
+    grid-area: user2;
+}
+select#time {
+    grid-area: time;
+}
+select#site {
+    grid-area: site;
+}
+button#calc {
+    grid-area: form1-submit;
+}
+button#fetch {
+    grid-area: form2-submit;
 }
 .winrate {
-  grid-column: 1/3;
-  grid-row: 3;
+    margin-top: 30px;
+    grid-area: winrate;
 }
 .github {
-  grid-column: 1/3;
-  grid-row: 4;
+    margin-top: 30px;
+    grid-area: github;
 }
