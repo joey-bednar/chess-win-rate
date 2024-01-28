@@ -1,45 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chess Win Percentage Calculator</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
     <div class="main">
         <div class="header">
             <h1>Chess Win Percentage Calculator</h1>
         </div>
-    <div class="form ratings">
-        <h2>Ratings</h2>
-        <input placeholder="Player 1 Rating" class="text rating" id="r1" /><br/>
-        <input placeholder="Player 2 Rating" class="text rating" id="r2" /><br/>
-        <button id="calc">CALCULATE</button>
-    </div>
-    <div class="form users">
-        <h2>Users</h2>
-        <input placeholder="Player 1 Username" class="text username" id="name1" /><br/>
-        <input placeholder="Player 2 Username" class="text username" id="name2" /><br/>
-        <select id="time">
-            <option value="0">Bullet</option>
-            <option value="1" selected>Blitz</option>
-            <option value="2">Rapid</option>
-            <option value="3">Daily</option>
-        </select>
-        <select id="site">
-            <option value="chesscom">Chess.com</option>
-            <option value="lichess">Lichess</option>
-        </select><br/>
-        <button id="fetch">FETCH</button>
-    </div>
-    <div class="winrate" id="winrate">
-    </div>
-
-    <div class="github">
-        Source code available on <a href="https://www.github.com/joey-bednar/chess-win-rate">Github</a>
-    </div>
+        <div class="form ratings">
+            <h2>Ratings</h2>
+            <input placeholder="Player 1 Rating" class="text rating" id="r1" /><br />
+            <input placeholder="Player 2 Rating" class="text rating" id="r2" /><br />
+            <button id="calc">CALCULATE</button>
+        </div>
+        <div class="form users">
+            <h2>Users</h2>
+            <input placeholder="Player 1 Username" class="text username" id="name1" /><br />
+            <input placeholder="Player 2 Username" class="text username" id="name2" /><br />
+            <select id="time">
+                <option value="0">Bullet</option>
+                <option value="1" selected>Blitz</option>
+                <option value="2">Rapid</option>
+                <option value="3">Daily</option>
+            </select>
+            <select id="site">
+                <option value="chesscom">Chess.com</option>
+                <option value="lichess">Lichess</option>
+            </select><br />
+            <button id="fetch">FETCH</button>
+        </div>
+        <div class="winrate" id="winrate"></div>
+        <div class="github">
+            Source code available on
+            <a href="https://www.github.com/joey-bednar/chess-win-rate">Github</a>
+        </div>
     </div>
     <script type="module" src="main.js"></script>
-  </body>
+</body>
+
 </html>
