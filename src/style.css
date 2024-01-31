@@ -3,7 +3,7 @@ body {
   background-color: black;
   background-image: url("../background.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 3000px 2000px;
   font-family: Arial;
   text-align: center;
 }
@@ -14,6 +14,7 @@ select {
   border: 0;
   font-size: 1.5em;
   margin: 2px;
+  width: 150px;
 }
 button {
   background: #565659;
@@ -25,9 +26,9 @@ button {
 }
 input.text {
   font-size: 1.5em;
-  height: 50px;
   background: #ffffff;
   border: 0;
+  height: 50px;
 }
 a {
   color: #ffffff;
@@ -40,8 +41,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 400px;
-
+  min-width: 300px;
   padding: 20px;
   border-radius: 15px;
   /*background: #284b63;*/
@@ -107,4 +107,57 @@ button#fetch {
 .github {
     margin-top: 30px;
     grid-area: github;
+}
+
+/* tablet compatibility */
+@media only screen and (max-width: 1000px) {
+    html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        font-size: 0.9em;
+    }
+    body {
+      background-position-y: -500px;
+      background-size: 3000px 2000px;
+    }
+}
+
+
+/* mobile phone compatibility */
+@media only screen and (max-width: 500px) {
+    html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        font-size: 0.5em;
+    }
+    body {
+      background-size: 2000px 1333px;
+      background-position-y: -300px;
+    }
+    h1 {
+        font-size: 4.5em;
+    }
+    h2 {
+        font-size: 3.0em;
+    }
+    input.text {
+        height: 30px;
+        font-size: 2.5em;
+        width: 90px;
+    }
+    select {
+        width: 80px;
+        font-size: 2.5em;
+    }
+    button {
+        font-size: 2.5em;
+    }
+    .github {
+        font-size: 2.5em;
+    }
+    .winrate {
+        font-size: 2.5em;
+    }
 }
