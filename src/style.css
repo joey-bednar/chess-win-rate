@@ -1,194 +1,192 @@
 body {
-    color: #ffffff;
-    background-color: black;
-    background: url('../background.jpg') no-repeat center center fixed;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: Arial;
-    text-align: center;
+  color: #ffffff;
+  background-color: black;
+  background: url('../background.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: Arial;
+  text-align: center;
 }
 
 select {
-    background: #ffffff;
-    color: #353535;
-    border-radius: 5px;
-    border: 0;
-    font-size: 1.5em;
-    margin: 2px;
-    width: 150px;
+  background: #ffffff;
+  color: #353535;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1.5em;
+  margin: 2px;
+  width: 150px;
 }
 
 button {
-    background: #565659;
-    color: #ffffff;
-    border: 3px solid #565659;
-    font-size: 1.5em;
-    padding: 5px;
-    margin: 1px 0;
+  background: #565659;
+  color: #ffffff;
+  border: 3px solid #565659;
+  font-size: 1.5em;
+  padding: 5px;
+  margin: 1px 0;
 }
 
 input.text {
-    font-size: 1.5em;
-    background: #ffffff;
-    border: 0;
-    height: 50px;
+  font-size: 1.5em;
+  background: #ffffff;
+  border: 0;
+  height: 50px;
 }
 
 a {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 /*********************************/
 
 .main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 300px;
-    padding: 20px;
-    border-radius: 15px;
-    /*background: #284b63;*/
-    border: 2px solid white;
-    background: #212324;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  /*background: #284b63;*/
+  border: 2px solid white;
+  background: #212324;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 
-    display: grid;
-    grid-template:
-        'header header header header'
-        'form1 . form2 form2'
-        'rating1 . user1 time'
-        'rating2 . user2 site'
-        'form1-submit . form2-submit form2-submit'
-        '. . . .'
-        'winrate winrate winrate winrate'
-        '. . . .'
-        'github github github github';
-    grid-column-gap: 20px;
-    grid-row-gap: 2px;
+  display: grid;
+  grid-template:
+    'header header header header'
+    'form1 . form2 form2'
+    'rating1 . user1 time'
+    'rating2 . user2 site'
+    'form1-submit . form2-submit form2-submit'
+    '. . . .'
+    'winrate winrate winrate winrate'
+    '. . . .'
+    'github github github github';
+  grid-column-gap: 20px;
+  grid-row-gap: 2px;
 }
 
 h1.header {
-    grid-area: header;
+  grid-area: header;
 }
 
 h2.ratings {
-    grid-area: form1;
+  grid-area: form1;
 }
 
 h2.users {
-    grid-area: form2;
+  grid-area: form2;
 }
 
 input#r1 {
-    grid-area: rating1;
+  grid-area: rating1;
 }
 
 input#r2 {
-    grid-area: rating2;
+  grid-area: rating2;
 }
 
 button#calc {
-    grid-area: form1-submit;
+  grid-area: form1-submit;
 }
 
 input#name1 {
-    grid-area: user1;
+  grid-area: user1;
 }
 
 input#name2 {
-    grid-area: user2;
+  grid-area: user2;
 }
 
 select#time {
-    grid-area: time;
+  grid-area: time;
 }
 
 select#site {
-    grid-area: site;
+  grid-area: site;
 }
 
 button#calc {
-    grid-area: form1-submit;
+  grid-area: form1-submit;
 }
 
 button#fetch {
-    grid-area: form2-submit;
+  grid-area: form2-submit;
 }
 
 .winrate {
-    margin-top: 30px;
-    grid-area: winrate;
+  margin-top: 30px;
+  grid-area: winrate;
 }
 
 .github {
-    margin-top: 30px;
-    grid-area: github;
+  margin-top: 30px;
+  grid-area: github;
 }
 
 /* tablet compatibility */
 @media only screen and (max-width: 1000px) {
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-size: 0.9em;
+  }
 
-    html,
-    body {
-        margin: 0;
-        height: 100%;
-        overflow: hidden;
-        font-size: 0.9em;
-    }
-
-    body {
-        background-position-y: -500px;
-        background-size: 3000px 2000px;
-    }
+  body {
+    background-position-y: -500px;
+    background-size: 3000px 2000px;
+  }
 }
 
 /* mobile phone compatibility */
 @media only screen and (max-width: 500px) {
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-size: 0.5em;
+  }
 
-    html,
-    body {
-        margin: 0;
-        height: 100%;
-        overflow: hidden;
-        font-size: 0.5em;
-    }
+  body {
+    background-size: 2000px 1333px;
+    background-position-y: -300px;
+  }
 
-    body {
-        background-size: 2000px 1333px;
-        background-position-y: -300px;
-    }
+  h1 {
+    font-size: 4.5em;
+  }
 
-    h1 {
-        font-size: 4.5em;
-    }
+  h2 {
+    font-size: 3em;
+  }
 
-    h2 {
-        font-size: 3em;
-    }
+  input.text {
+    height: 30px;
+    font-size: 2.5em;
+    width: 90px;
+  }
 
-    input.text {
-        height: 30px;
-        font-size: 2.5em;
-        width: 90px;
-    }
+  select {
+    width: 80px;
+    font-size: 2.5em;
+  }
 
-    select {
-        width: 80px;
-        font-size: 2.5em;
-    }
+  button {
+    font-size: 2.5em;
+  }
 
-    button {
-        font-size: 2.5em;
-    }
+  .github {
+    font-size: 2.5em;
+  }
 
-    .github {
-        font-size: 2.5em;
-    }
-
-    .winrate {
-        font-size: 2.5em;
-    }
+  .winrate {
+    font-size: 2.5em;
+  }
 }
