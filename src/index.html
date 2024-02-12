@@ -1,44 +1,57 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YV2H2FQW20"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chess Win Percentage Calculator</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+      gtag('config', 'G-YV2H2FQW20');
+    </script>
 
-<body>
-  <div class="main">
-    <h1 class="header">Chess Win Percentage Calculator</h1>
-    <h2 class="ratings">Ratings</h2>
-    <h2 class="users">Users</h2>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Win Percentage Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <input placeholder="Player 1 Rating" class="text rating" id="r1" />
-    <input placeholder="Player 2 Rating" class="text rating" id="r2" />
-    <button id="calc">CALCULATE</button>
+  <body>
+    <div class="main">
+      <h1 class="header">Chess Win Percentage Calculator</h1>
+      <h2 class="ratings">Ratings</h2>
+      <h2 class="users">Users</h2>
 
-    <input placeholder="Player 1 Username" class="text username" id="name1" />
-    <input placeholder="Player 2 Username" class="text username" id="name2" />
-    <select id="time">
-      <option value="0">Bullet</option>
-      <option value="1" selected>Blitz</option>
-      <option value="2">Rapid</option>
-      <option value="3">Daily</option>
-    </select>
-    <select id="site">
-      <option value="chesscom">Chess.com</option>
-      <option value="lichess">Lichess</option>
-    </select>
-    <button id="fetch">FETCH</button>
+      <input placeholder="Player 1 Rating" class="text rating" id="r1" />
+      <input placeholder="Player 2 Rating" class="text rating" id="r2" />
+      <button id="calc">CALCULATE</button>
 
-    <div class="winrate" id="winrate"></div>
-    <div class="github">
-      Source code available on
-      <a href="https://www.github.com/joey-bednar/chess-win-rate">Github</a>
+      <input placeholder="Player 1 Username" class="text username" id="name1" />
+      <input placeholder="Player 2 Username" class="text username" id="name2" />
+      <select id="time">
+        <option value="0">Bullet</option>
+        <option value="1" selected>Blitz</option>
+        <option value="2">Rapid</option>
+        <option value="3">Daily</option>
+      </select>
+      <select id="site">
+        <option value="chesscom">Chess.com</option>
+        <option value="lichess">Lichess</option>
+      </select>
+      <button id="fetch">FETCH</button>
+
+      <div class="winrate" id="winrate"></div>
+      <div class="github">
+        Source code available on
+        <a href="https://www.github.com/joey-bednar/chess-win-rate">Github</a>
+      </div>
     </div>
-  </div>
-  <script type="module" src="main.js"></script>
-</body>
-
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
