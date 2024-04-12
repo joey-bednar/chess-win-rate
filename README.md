@@ -6,7 +6,6 @@ APIs are used to fetch user ratings in various time controls.
 
 Available at [www.josephbednar.com/chess-win-rate](http://www.josephbednar.com/chess-win-rate)
 
-
 ### Development
 
 ```

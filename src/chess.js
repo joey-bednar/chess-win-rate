@@ -1,10 +1,11 @@
+// return username's chess.com ratings in an array
+// output format: [bullet,blitz,rapid,daily]
 async function chesscom(username) {
   let obj;
   try {
-    const response = await fetch(
-      'https://api.chess.com/pub/player/' + username + '/stats'
-    );
+    const response = await fetch('https://api.chess.com/pub/player/' + username + '/stats');
 
+    // TODO: add visual error when user not found
     if (!response.ok) {
       console.log('User not found.');
       return;
@@ -17,12 +18,7 @@ async function chesscom(username) {
   }
 
   let ratings = ['', '', '', ''];
-  const time_control = [
-    'chess_bullet',
-    'chess_blitz',
-    'chess_rapid',
-    'chess_daily'
-  ];
+  const time_control = ['chess_bullet', 'chess_blitz', 'chess_rapid', 'chess_daily'];
 
   for (let i = 0; i < time_control.length; i++) {
     if (obj.hasOwnProperty(time_control[i])) {
@@ -32,10 +28,14 @@ async function chesscom(username) {
 
   return ratings;
 }
+
+// return username's lichess ratings in an array
+// output format: [bullet,blitz,rapid,correspondence]
 async function lichess(username) {
   try {
     const response = await fetch('https://lichess.org/api/user/' + username);
 
+    // TODO: add visual error when user not found
     if (!response.ok) {
       console.log('User not found.');
       return;
@@ -46,7 +46,6 @@ async function lichess(username) {
       obj.perfs.bullet.rating,
       obj.perfs.blitz.rating,
       obj.perfs.rapid.rating,
-      //obj.perfs.classical.rating,
       obj.perfs.correspondence.rating
     ];
   } catch {
@@ -63,10 +62,8 @@ function winRate(r1, r2) {
   return percent;
 }
 
+// call chess.com/lichess fetch ratings function
 async function fetchUser(username, site) {
-  if (username === '') {
-    return;
-  }
 
   if (site === 'chesscom') {
     return chesscom(username);
@@ -77,20 +74,29 @@ async function fetchUser(username, site) {
   }
 }
 
+// get usernames from input, send to fetchUser, and display ratings in ui
 export async function fetchStats() {
   const site = document.querySelector('#site').value;
   const time = document.querySelector('#time').value;
 
-  for (let i = 1; i <= 2; i++) {
-    const username = document.querySelector('#name' + i).value;
-    const out = document.querySelector('#r' + i);
-    try {
-      let obj = await fetchUser(username, site);
-      out.value = obj[time];
-    } catch {}
+  const username1 = document.querySelector('#name1').value;
+  const out1 = document.querySelector('#r1');
+
+  const username2 = document.querySelector('#name2').value;
+  const out2 = document.querySelector('#r2');
+
+  if (username1 === '' || username2 === '') {
+    return;
   }
+
+  try {
+    let [obj1, obj2] = await Promise.all([fetchUser(username1, site), fetchUser(username2, site)]);
+    out1.value = obj1[time];
+    out2.value = obj2[time];
+  } catch {}
 }
 
+// get ratings from input, calculate win percentage, and display in ui
 export function calculate() {
   const r1 = document.querySelector('#r1').value;
   const r2 = document.querySelector('#r2').value;
@@ -101,6 +107,5 @@ export function calculate() {
     return;
   }
 
-  out.innerHTML =
-    'Player 1 is expected to win <b>' + wr + '%</b> of games against Player 2.';
+  out.innerHTML = 'Player 1 is expected to win <b>' + wr + '%</b> of games against Player 2.';
 }
